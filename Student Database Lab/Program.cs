@@ -33,17 +33,22 @@ while (ToContinue)
         }
         break;
     }
-            Console.Write("Please ask for student name by number 0-16:  ");
-        int UserInput = int.Parse(Console.ReadLine());
-          
-        UserInput = UserInput - 1;
-        Console.WriteLine();
+    int UserInput = -1;
+    while (UserInput <= 0 || UserInput > names.Length)//Continue until number is valid
+    {
+        Console.Write($"Please ask for student name by number 0-{names.Length}:  ");
 
+        UserInput = int.Parse(Console.ReadLine());
+    }           
+        UserInput--;//set input to 0 based index
+        Console.WriteLine();
+    //Printing Name
         Console.WriteLine("Name " + (UserInput + 1) + " is " + names[UserInput]);
+    //Get category
         Console.Write("  What would you like to know? Enter \"Hometown\"  or \"Favorite Food\" : ");
         string Cat = Console.ReadLine().Trim().ToLower();
 
-        if (Cat == "hometown" || Cat == "town")
+        if (Cat == "hometown" || Cat == "town")15
         {
             Console.WriteLine(names[UserInput] + " is from " + towns[UserInput]);
         }
